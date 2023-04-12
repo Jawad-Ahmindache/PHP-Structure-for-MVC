@@ -103,4 +103,3 @@ Cela permet un suivi plus efficace du module
                 1.0 : 
                     - Creation du theme
     
-# PHP-Structure-for-MVC
