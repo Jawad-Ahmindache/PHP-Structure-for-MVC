@@ -1,0 +1,80 @@
+version: "1.0"  # optional since v1.27.0
+services:
+    web:
+        image: nginx:latest
+        restart: unless-stopped
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ${HOST_APP_SOURCE}:${CNT_APP_SOURCE_DIR} # Charger le code source
+            - ${HOST_USER_FILES}:${CNT_USER_FILE_DIR} # Stockage des fichiers des clients
+            - ${HOST_APP_CONFIG_LARAVEL}:${CNT_APP_CONFIG_LARAVEL}
+            - ${HOST_SESSION_PATH}:${CNT_SESSION_PATH} #certificat ssl
+
+            - ${HOST_CONFIG_NGINX}:/etc/nginx/conf.d/default.conf # Configuration NGINX
+            - ${HOST_LOG_NGINX}:/var/log/nginx/ #Log nginx
+            - ${HOST_SSL_CERT}:/etc/ssl_cert #certificat ssl
+        depends_on:
+            - php
+    mariadb:
+        image: mariadb:latest
+        restart: unless-stopped
+        container_name: mariadb-docker
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASS}
+            - MARIADB_ROOT_PASSWORD=${MYSQL_ROOT_PASS}
+        volumes:
+            -  ${HOST_DATABASE_DIR}:/var/lib/mysql # Liste toute nos base de donnée
+            - ./volumes/config/sql/mariadb.cnf:/etc/mysql/mariadb.cnf # mariadb.cnf
+            - ./volumes/config/sql/50-server.cnf:/etc/mysql/mariadb.conf.d/50-server.cnf # 50-server.cnf
+            -  ${HOST_SSL_CERT}:/etc/ssl_cert #certificat ssl
+
+
+        ports:
+          - "3306:3306"
+               
+    php:
+        image: jahmindache/php8r2i
+        restart: unless-stopped
+        container_name: php-fpm-docker
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASS}
+            - REDIS_PASSWORD=${REDIS_PASSWORD}
+            - CNT_APP_CONFIG_LARAVEL=${CNT_APP_CONFIG_LARAVEL}
+            - CNT_SESSION_PATH=${CNT_SESSION_PATH}
+        ports:
+            - "9000:9000"
+
+        volumes:
+            
+            - ./volumes/config/php/php.ini:/usr/local/etc/php/php.ini #php.ini
+            - ${HOST_APP_SOURCE}:${CNT_APP_SOURCE_DIR} # Charger le code source
+            - ${HOST_USER_FILES}:${CNT_USER_FILE_DIR}
+            - ${HOST_APP_CONFIG_LARAVEL}:${CNT_APP_CONFIG_LARAVEL}
+            - ${HOST_SSL_CERT}:/etc/ssl_cert #certificat ssl
+            - ${HOST_SESSION_PATH}:${CNT_SESSION_PATH} #certificat ssl
+
+
+        depends_on:
+            - mariadb
+
+
+    # phpMyAdmin Service
+    phpmyadmin:
+        image: jahmindache/phpmyadminssl
+        container_name: phpmyadmin
+        volumes:
+            - ${HOST_SSL_CERT}:/etc/ssl_cert #certificat ssl
+            - ./volumes/config/phpmyadmin/000default.conf:/etc/apache2/sites-available/000-default.conf #conf apache phpmyadmin
+            - ./volumes/config/php/php.ini:/usr/local/etc/php/php.ini #php.ini
+        ports:
+            - 8080:80
+            - 8443:443
+        environment:
+            PMA_HOST: mariadb
+            UPLOAD_LIMIT: 2048M
+        depends_on:
+            - mariadb
+
+    

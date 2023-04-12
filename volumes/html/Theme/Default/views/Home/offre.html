@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="assest/css/style.css">
+</head>
+<body>
+<!--navbarre-->
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="assest/img/download.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item selected-menu position-relative">
+                    <a class="nav-link active" aria-current="page" href="#">Lancer la recherche</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Avie sur les école</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Estimation de salaire</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item d-flex align-items-center px-3 ">
+
+                    <span class = "position-relative h-auto w-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chat-left-dots-fill" viewBox="0 0 16 16">
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                      </svg>
+                    <span class="position-absolute top-0 start-100 translate-middle  badge rounded-pill bg-danger">
+                      3
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  </span>
+                </li>
+
+                <li class="nav-item d-flex align-items-center px-3">
+
+                    <span class = "position-relative h-auto w-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                      </svg>
+                    <span class="position-absolute top-0 start-100 translate-middle  badge rounded-pill bg-danger">
+                      9+
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  </span>
+                </li>
+                <li class="nav-item d-flex align-items-center px-3 pe-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                </li>
+
+                <li class="nav-item d-flex text-secondary " style = "font-size:22px">
+                    |
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link active " href="#">Profile éléves</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--fin navbarre-->
+
+<div class="container mt-5 d-flex">
+    <div class = "container-fluid d-flex justify-content-center">
+        <div class = "row w-75">
+            <div class = "col-5  p-0 px-1">
+                <div class=" input-group mb-3">
+
+                    <input type="text" placeholder="Professeurs" class="form-control border-end-0">
+                    <span class="input-group-text bg-white fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg></span>
+                </div>
+
+            </div>
+
+            <div class = "col-5  p-0 px-1">
+                <div class=" input-group mb-3">
+                    <span class="input-group-text bg-white fw-bold">Où</span>
+
+                    <input type="text" placeholder="Montmagny (95)" class="form-control border-start-0 border-end-0">
+                    <span class="input-group-text bg-white fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                  </svg></span>
+                </div>
+
+            </div>
+
+            <div class="col-2 p-0 px-1">
+                <button class="btn btn-primary">Rechercher</button>
+            </div>
+            <div class = "row justify-content-center my-2">
+                <a class = "text-center link-primary fw-bold text-decoration-none">école : Publiez une annonce <span class="text-dark ">- trouvez votre prochain talent ici.</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="secondNav">
+            <ul class="navbar-nav w-100 d-flex justify-content-center me-auto mb-2 mb-lg-0">
+                <li class="nav-item selected-menu position-relative">
+                    <a class="nav-link active" aria-current="page" href="#">Offres d'emploi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Recherches récentes</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-flud bg-primary">
+    <div class="row">
+        <div class="col-4">
+            <div class= "row bg-danger justify-content-between">
+                <img src="assest/img/emb.jpg" style="width:84px;height:64px">
+                <div class = "w-auto bg-green align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                </svg></div>
+            </div>
+            <div class="col-12">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <img src="assest/img/emb.jpg" width="60" height="60">
+        </div>
+
+        <div class="col-4">
+            <img src="assest/img/emb.jpg" width="60" height="60">
+        </div>
+
+        <div class="col-6">
+            <img src="assest/img/emb.jpg" width="60" height="60">
+
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

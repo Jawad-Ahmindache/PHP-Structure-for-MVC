@@ -1,0 +1,16 @@
+name: Exemple theme
+version: 1.2
+author : nom prenom
+date_create: 2022-12-01 14:54:00
+last_modif : 2022-12-02 09:54:00
+contributor :
+	- Nom prenom
+description : Ce theme sert d'exemple
+changelog : 
+        1.2 : 
+            - Ajout X
+            - Modification de X
+        1.1 : 
+            - Ajout X
+        1.0 : 
+            - Creation du theme
